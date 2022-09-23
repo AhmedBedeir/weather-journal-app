@@ -1,8 +1,8 @@
 /* Global Variables */
-const apiKey = 'c10f6cde7ddd3022454c51dddef01a57';
+const apiKey = 'c10f6cde7ddd3022454c51dddef01a57&units=metric';
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = (d.getMonth()+1) + '.' + d.getDate() + '.' + d.getFullYear();
 // My inputs
 const zip = document.getElementById('zip');
 const felling = document.getElementById('feelings');
@@ -57,7 +57,7 @@ async function showData(done) {
     const getDataFromServer = await fetch('/all');
     const retrieveData = await getDataFromServer.json();
     date.innerHTML = `<p><strong>Today: </strong>${retrieveData.date}</p>`;
-    temp.innerHTML = `<p><strong>Temperature: </strong>${retrieveData.tem} Fْ</p>`;
+    temp.innerHTML = `<p><strong>Temperature: </strong>${retrieveData.tem} Cْ</p>`;
     content.innerHTML = `<p><strong>Feel: </strong>${retrieveData.content}</p>`;
     zip.value = '';
     felling.value = '';
